@@ -1,9 +1,9 @@
 <template>
-  <v-app>
+  <v-app :theme="appTheme">
 
   <v-app-bar>
     <v-row justify="start" align-self="center" align="center">
-      <v-col cols="2" class="pl-10">
+      <v-col cols="7" class="pl-10">
         <v-btn  to="/">首页</v-btn>
         <v-btn  to="/market">市场</v-btn>
         <v-btn  to="/stock">自选</v-btn>
@@ -23,5 +23,6 @@
 
 <script lang="ts" setup>
   const theme = ref(false);
+  const appTheme = computed(()=> theme.value?"dark":"light");
   const themeName = computed(()=> theme.value ? "暗黑":"明亮");
 </script>
