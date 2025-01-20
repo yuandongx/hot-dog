@@ -5,8 +5,9 @@
     <v-row justify="start" align-self="center" align="center">
       <v-col cols="7" class="pl-10">
         <v-btn  to="/">首页</v-btn>
-        <v-btn  to="/market">市场</v-btn>
-        <v-btn  to="/stock">自选</v-btn>
+        <v-btn  to="/market">看板</v-btn>
+        <v-btn  to="/stock">关注</v-btn>
+        <v-btn  to="/note">笔记</v-btn>
       </v-col>
       <v-col></v-col>
       <v-col cols="1" class="mt-10">
