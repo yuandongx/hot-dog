@@ -7,15 +7,28 @@ import Components from 'unplugin-vue-components/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 
 import { defineConfig } from 'vite'
-
+import dotenv from 'dotenv';
+const env = dotenv.config().parsed || process.env;
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    API_URL: JSON.stringify(env.API_URL),
+  },
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
-
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://123.249.37.229:8000',
+        changeOrigin: true,
+        followRedirects: true,
+        rewrite: (path) => path.replace(/^\/api/, '/api/v1'),
+      },
+    }
+  },
   css: {
     preprocessorOptions: {
       scss: {
